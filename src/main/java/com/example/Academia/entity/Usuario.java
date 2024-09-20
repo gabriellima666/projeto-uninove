@@ -16,9 +16,19 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nome;
 
     private String email;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
