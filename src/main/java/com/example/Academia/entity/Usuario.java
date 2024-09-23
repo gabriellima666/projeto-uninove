@@ -2,13 +2,8 @@ package com.example.Academia.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
@@ -35,7 +30,21 @@ public class Usuario {
     
     private String cpf;
 
+    @ManyToOne  // Muitos clientes podem estar associados a um plano
+    @JoinColumn(name = "plano_id")  // Chave estrangeira que referencia o plano
+    private Plano plano;
+
+
+
     // getters e setters
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
     public String getNome() {
         return nome;
     }

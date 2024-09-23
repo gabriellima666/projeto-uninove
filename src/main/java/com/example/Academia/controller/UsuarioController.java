@@ -1,6 +1,8 @@
 package com.example.Academia.controller;
 
+import com.example.Academia.entity.Plano;
 import com.example.Academia.entity.Usuario;
+import com.example.Academia.repository.PlanoRepository;
 import com.example.Academia.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +18,9 @@ import java.util.List;
 public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PlanoRepository planoRepository;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -47,9 +52,9 @@ public class UsuarioController {
 
     @GetMapping("/clientes")
     public String listarClientes(Model model) {
-        List<Usuario> clientes = usuarioRepository.findAll();  // Busca todos os clientes
+        List<Usuario> clientes = usuarioRepository.findAll();  // Busca todos os clientes com seus planos
         model.addAttribute("clientes", clientes);  // Adiciona a lista de clientes ao modelo
-        return "lista-clientes";  // Retorna a página de listagem de clientes
+        return "lista-clientes";  // Retorna a página de listagem de clientes com planos
     }
 
 }

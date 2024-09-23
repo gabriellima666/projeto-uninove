@@ -40,6 +40,14 @@
         
             <label for="cpf"></label>
             <input type="text" id="cpf" th:field="*{cpf}" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="CPF: 123.456.789-01" required>
+
+            <label for="plano">Escolha um Plano:</label>
+            <select id="plano" th:field="*{plano.id}" required>
+                <option value="">Selecione um plano</option>
+                <option value="1">Plano Básico - R$ 50,00</option>
+                <option value="2">Plano Premium - R$ 100,00</option>
+                <option value="3">Plano VIP - R$ 150,00</option>
+            </select>
         
             <button type="submit">Cadastrar</button>
         
