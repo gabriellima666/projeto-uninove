@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class UsuarioController {
     @Autowired
@@ -41,6 +43,13 @@ public class UsuarioController {
     @GetMapping("/planos")
     public String planos (Model model){
         return "planos";
+    }
+
+    @GetMapping("/clientes")
+    public String listarClientes(Model model) {
+        List<Usuario> clientes = usuarioRepository.findAll();  // Busca todos os clientes
+        model.addAttribute("clientes", clientes);  // Adiciona a lista de clientes ao modelo
+        return "lista-clientes";  // Retorna a página de listagem de clientes
     }
 
 }
