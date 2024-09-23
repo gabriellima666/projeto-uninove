@@ -6,17 +6,6 @@ Usar o banco de dados MySQL do XAMPP;
 
 Criar um banco de dados com o nome academia;
 
-Crie a tabela cliente
-
-    CREATE TABLE cliente ( 
-	    id SERIAL PRIMARY KEY,
-	    nome VARCHAR(255) NOT NULL,
-	    email VARCHAR(255) NOT NULL,
-	    data_nascimento DATE,
-	    cpf VARCHAR(14) NOT NULL UNIQUE
-    );
-
-
 ## Como abrir o projeto
 
  1.   Abra o projeto no IntelliJ IDEA.
